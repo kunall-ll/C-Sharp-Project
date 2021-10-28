@@ -8,6 +8,40 @@ namespace SalesProject
     {
         static void Main(string[] args)
         {
+            SqlDataReader sendCommand(string query)
+            {
+
+                string connectionString = "Server = Placeholder; Database= reports;";
+                SqlConnection connection = new SqlConnection(@connectionString);
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine("SUCCESS");
+                    return reader;
+                }
+                catch
+                {
+                    Console.WriteLine("ERROR");
+                    return null;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+            void insertdata()
+            {
+                string insertquery = "INSERT INTO sale (ProductName, Quantity, Price, SaleDate) VALUES('Air Fryer', 56, 7.99, '2008-11-15')";
+
+                sendCommand(insertquery);
+
+
+            }
+            string userinput = Console.ReadLine();
             switch (userinput)
             {
                 case "Data Entry":
@@ -65,7 +99,7 @@ namespace SalesProject
                         userinput = Console.ReadLine();
                         Console.WriteLine("Please enter a month: ");
                         seconduserinput = Console.ReadLine();
-                        string countyearmonthsql = "select count(SaleDate) from sales where year(SaleDate) = " + userinput + " AND month(SaleDate) = " + userinput2;
+                        string countyearmonthsql = "select count(SaleDate) from sales where year(SaleDate) = " + userinput + " AND month(SaleDate) = " + seconduserinput;
                         SqlDataReader test2 = sendCommand(countyearmonthsql);
 
                         while (test2.Read())
@@ -80,40 +114,6 @@ namespace SalesProject
                     default:
                         Console.WriteLine("please enter your choice again");
                         break;
-                }
-
-                void insertdata()
-                {
-                    string insertquery = "INSERT INTO sale (ProductName, Quantity, Price, SaleDate) VALUES('Air Fryer', 56, 7.99, '2008-11-15')";
-
-                    sendCommand(insertquery);
-
-
-                }
-
-                SQLDataReader sendCommand(string query)
-                {
-
-                    string connectionString = "Server = Placeholder; Database= reports;";
-                    SqlConnection connection = new SqlConnection(@connectionString);
-                    SqlCommand command = new SqlCommand(query, connection);
-
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        Console.WriteLine("SUCCESS");
-                        return reader;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("ERROR");
-                        return null;
-                    }
-                    finally
-                    {
-                        connection.Close();
-                    }
                 }
 
             }
