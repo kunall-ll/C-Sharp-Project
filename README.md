@@ -21,12 +21,12 @@ Include controllers and services and proper exception handling.
 The user can select to Create a sale in the database or Read from the database. 
 
 Reports are available for:
-o Sales by Year (e.g. List of all sales in the year 2020 printed to the console)
-o	Sales by Month and Year (e.g. List of all sales in January of 2020 printed to the console)
-o	Total Sales by Year (e.g. The total amount of sales for 2021, i.e. the sum of all the sales)
-o	Total Sales by Year and Month (e.g. The total amount of sales for January of 2021)
-o	All sales between two specified years (inclusive)
-o	All sales between two specified years and months (inclusive)
+* Sales by Year (e.g. List of all sales in the year 2020 printed to the console)
+*	Sales by Month and Year (e.g. List of all sales in January of 2020 printed to the console)
+*	Total Sales by Year (e.g. The total amount of sales for 2021, i.e. the sum of all the sales)
+*	Total Sales by Year and Month (e.g. The total amount of sales for January of 2021)
+*	All sales between two specified years (inclusive)
+*	All sales between two specified years and months (inclusive)
 
 
 ## Notable mentions
