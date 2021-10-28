@@ -1,3 +1,5 @@
+create database reports;
+
 CREATE TABLE IF NOT EXISTS sale (
   SaleId INT AUTO_INCREMENT,
   ProductName VARCHAR(128) NOT NULL,

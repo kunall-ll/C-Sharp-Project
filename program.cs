@@ -21,14 +21,6 @@ namespace SalesProject
                     break;
             }
 
-            void insertdata()
-            {
-                string insertquery = "INSERT INTO sale (ProductName, Quantity, Price, SaleDate) VALUES('Air Fryer', 56, 7.99, '2008-11-15')";
-
-                sendCommand(insertquery);
-
-
-            }
 
             void selectreport()
             {
@@ -71,6 +63,41 @@ namespace SalesProject
                         Console.WriteLine("please enter your choice again");
                         break;
                 }
+
+                void insertdata()
+                {
+                    string insertquery = "INSERT INTO sale (ProductName, Quantity, Price, SaleDate) VALUES('Air Fryer', 56, 7.99, '2008-11-15')";
+
+                    sendCommand(insertquery);
+
+
+                }
+
+                SQLDataReader sendCommand(string query)
+                {
+
+                    string connectionString = "Server = Placeholder; Database= reports;";
+                    SqlConnection connection = new SqlConnection(@connectionString);
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        Console.WriteLine("SUCCESS");
+                        return reader;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("ERROR");
+                        return null;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+
             }
         }
     }
