@@ -8,7 +8,7 @@ namespace SalesProject
     {
         static void Main(string[] args)
         {
-            SqlDataReader sendCommand(string query)
+            SqlDataReader sendCommand(string query) //establishes sql database connection to reports database
             {
 
                 string connectionString = "Server = Placeholder; Database= reports;";
@@ -33,7 +33,7 @@ namespace SalesProject
                 }
             }
 
-            void insertdata()
+            void insertdata() //populates database
             {
                 string insertquery = "INSERT INTO sale (ProductName, Quantity, Price, SaleDate) VALUES('Air Fryer', 56, 7.99, '2008-11-15')";
 
@@ -41,6 +41,10 @@ namespace SalesProject
 
 
             }
+
+
+            Console.WriteLine("Choose what you want to do: \n Data Entry \n Reports "); //user choice within console
+
             string userinput = Console.ReadLine();
             switch (userinput)
             {
@@ -56,7 +60,7 @@ namespace SalesProject
             }
 
 
-            void selectreport()
+            void selectreport() //gathers user input with database commands 
             {
 
                 string seconduserinput;
