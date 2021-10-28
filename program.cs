@@ -49,7 +49,16 @@ namespace SalesProject
                         Console.WriteLine("Please enter a year: ");
                         userinput = Console.ReadLine();
                         string countyearsql = "select count(SaleDate) from sales where year(SaleDate) = " + userinput;
-                        sendCommand(sqlcountyear);
+                        SqlDataReader test = sendCommand(countyearsql);
+
+                        while (test.Read())
+                        {
+                            for (int i = 0; i < test.FieldCount; i++)
+                            {
+                                Console.Write(test[i] + ",");
+                            }
+                            Console.WriteLine();
+                        }
                         break;
                     case "total year month":
                         Console.WriteLine("Please enter a year: ");
@@ -57,7 +66,16 @@ namespace SalesProject
                         Console.WriteLine("Please enter a month: ");
                         seconduserinput = Console.ReadLine();
                         string countyearmonthsql = "select count(SaleDate) from sales where year(SaleDate) = " + userinput + " AND month(SaleDate) = " + userinput2;
-                        sendCommand(countyearmonthsql);
+                        SqlDataReader test2 = sendCommand(countyearmonthsql);
+
+                        while (test2.Read())
+                        {
+                            for (int i = 0; i < test2.FieldCount; i++)
+                            {
+                                Console.Write(test2[i] + ",");
+                            }
+                            Console.WriteLine();
+                        }
                         break;
                     default:
                         Console.WriteLine("please enter your choice again");
