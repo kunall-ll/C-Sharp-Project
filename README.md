@@ -12,7 +12,7 @@ Slowly and with pitfalls and unexpected challenges as I knew there would be a lo
 The console interface and the SQL logic.
 
 ## What did not go as planned?
-No controllers or services. 
+No controllers or services. I attempted to create this from scratch.
 
 ## Possible improvements for the future
 Include controllers and services and proper exception handling.
